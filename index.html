@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תכנון פיננסי בטוח | סוכן פנסיה וביטוח</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Heebo', sans-serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .animate-slideInRight {
+      animation: slideInRight 1s ease-out;
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 3s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    
+    .cta-button {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    .contact-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    
+    .service-icon {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .input-field {
+      transition: all 0.3s ease;
+    }
+    
+    .input-field:focus {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .shape {
+      position: absolute;
+      opacity: 0.1;
+    }
+    
+    .shape-1 {
+      top: 20%;
+      left: 10%;
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .shape-2 {
+      top: 60%;
+      right: 15%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    
+    .shape-3 {
+      bottom: 20%;
+      left: 20%;
+      animation: float 12s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+  
+  <!-- Hero Section -->
+  <section class="hero-gradient relative min-h-screen flex items-center justify-center text-white">
+    <div class="floating-shapes">
+      <div class="shape shape-1">
+        <i class="fas fa-coins text-6xl"></i>
+      </div>
+      <div class="shape shape-2">
+        <i class="fas fa-chart-line text-8xl"></i>
+      </div>
+      <div class="shape shape-3">
+        <i class="fas fa-shield-alt text-5xl"></i>
+      </div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto text-center px-4 relative z-10">
+      <div class="animate-fadeInUp">
+        <!-- Personal Photo -->
+        <div class="mb-8">
+          <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-2xl mb-6">
+            <img src="https://via.placeholder.com/160x160/667eea/ffffff?text=תמונה+אישית" alt="תמונה אישית" class="w-full h-full object-cover">
+          </div>
+          <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+            תכנון פיננסי <span class="text-yellow-300">בטוח</span>
+            <br>לעתיד שלך
+          </h1>
+        </div>
+        
+        <!-- Personal Paragraph -->
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 max-w-4xl mx-auto">
+          <p class="text-lg md:text-xl leading-relaxed text-white/95">
+            שלום, אני <strong>שי לוי</strong>. בן 34, נשוי לבתאל ואבא לליאן ומיאל.
+            אני חי ונושם את תחום הביטוח, פנסיה ופיננסים משנת 2016 ובעל רישיון פנסיוני מטעם משרד האוצר.
+            המטרה שלי היא לעזור לכם לקבל החלטות חכמות יותר לעתיד שלכם ולהיות מנהל הסיכונים והפיננסים שלכם.
+            חשוב לי  ללוות אתכם ולעזור לכם להיות מוכנים  לכל מה שהחיים מביאים איתם .
+            אני מזמין אתכם לתאם איתי פגישה, ללא כל התחייבות.
+            מוזמנים לפנות אליי בכל דרך שנוחה לכם.<br>
+            שי.
+          </p>
+        </div>
+        
+        <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+          סוכן מוסמך לפנסיה, ביטוחים וקרנות השתלמות עם ניסיון של שנים בתחום הפיננסי
+        </p>
+        
+        <!-- Contact Icons Row -->
+        <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
+          <a href="tel:050-123-4567" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-phone text-2xl"></i>
+          </a>
+          <a href="https://wa.me/972501234567" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl"></i>
+          </a>
+          <a href="mailto:info@example.com" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-envelope text-2xl"></i>
+          </a>
+          <a href="#contact" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-calendar-alt text-2xl"></i>
+          </a>
+        </div>
+        
+        <a href="#contact" class="cta-button text-white px-8 py-4 rounded-full text-lg font-semibold inline-block">
+          קבל ייעוץ חינם עכשיו
+        </a>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-white relative" id="services">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16 animate-fadeInUp">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">השירותים שלי</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">פתרונות פיננסיים מקצועיים ומותאמים אישית לכל לקוח</p>
+      </div>
+      
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-piggy-bank text-2xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">תוכניות פנסיה</h3>
+          <p class="text-gray-600 leading-relaxed">תכנון פנסיוני מותאם אישית לפי הצרכים והיעדים שלך. ליווי מקצועי לכל תקופת החיסכון.</p>
+          <div class="mt-6">
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+          </div>
+        </div>
+        
+        <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-shield-alt text-2xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">ביטוחים</h3>
+          <p class="text-gray-600 leading-relaxed">ביטוח חיים, בריאות ואישי עם ליווי מקצועי לאורך כל הדרך. הגנה מקסימלית למשפחתך.</p>
+          <div class="mt-6">
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+          </div>
+        </div>
+        
+        <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-chart-line text-2xl text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">קרנות השתלמות</h3>
+          <p class="text-gray-600 leading-relaxed">ייעוץ והכוונה לבחירת קרנות השתלמות מתאימות לחיסכון ארוך טווח ויעדים אישיים.</p>
+          <div class="mt-6">
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="animate-fadeInUp">
+          <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+          <div class="text-gray-600">שנות ניסיון</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.2s">
+          <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+          <div class="text-gray-600">לקוחות מרוצים</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.4s">
+          <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+          <div class="text-gray-600">שביעות רצון</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.6s">
+          <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+          <div class="text-gray-600">זמינות</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-20 bg-white" id="contact">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Contact Info -->
+        <div class="animate-slideInRight">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">בואו נתחיל לתכנן יחד</h2>
+          <p class="text-xl text-gray-600 mb-8">השאירו פרטים ואחזור אליכם תוך 24 שעות לייעוץ ראשוני חינם</p>
+          
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-phone text-blue-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold">טלפון</div>
+                <div class="text-gray-600">050-123-4567</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fab fa-whatsapp text-green-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold">WhatsApp</div>
+                <div class="text-gray-600">זמין 24/7</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-envelope text-purple-600"></i>
+              </div>
+              <div>
+                <div class="font-semibold">אימייל</div>
+                <div class="text-gray-600">info@example.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="animate-fadeInUp">
+          <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <input type="text" name="_honey" style="display:none">
+            
+            <div>
+              <label class="block mb-2 font-semibold text-gray-700">שם מלא</label>
+              <input type="text" name="name" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block mb-2 font-semibold text-gray-700">טלפון</label>
+              <input type="tel" name="phone" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block mb-2 font-semibold text-gray-700">אימייל</label>
+              <input type="email" name="email" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block mb-2 font-semibold text-gray-700">הודעה</label>
+              <textarea name="message" rows="4" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full cta-button text-white px-6 py-4 rounded-xl text-lg font-semibold hover:shadow-lg transition-all">
+              שלח הודעה עכשיו
+            </button>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">תכנון פיננסי בטוח</h3>
+          <p class="text-gray-300 leading-relaxed">מומחה בתחום הפיננסים עם ניסיון רב בייעוץ פנסיוני וביטוחי</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">קישורים מהירים</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#services" class="hover:text-white transition">השירותים שלי</a></li>
+            <li><a href="#contact" class="hover:text-white transition">צור קשר</a></li>
+            <li><a href="#" class="hover:text-white transition">אודות</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">עקוב אחריי</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2024 Created by Avihai Levi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.querySelectorAll('.animate-fadeInUp, .animate-slideInRight').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(50px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(el);
+    });
+
+    // Counter animation
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 100;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
+      }, 20);
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('[class*="text-4xl"]');
+          counters.forEach((counter, index) => {
+            const targets = [15, 500, 100, 24];
+            setTimeout(() => {
+              animateCounter(counter, targets[index]);
+            }, index * 200);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('section:has([class*="text-4xl"])');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+  </script>
+</body>
+</html>
