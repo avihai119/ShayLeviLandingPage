@@ -14,7 +14,7 @@
     }
     
     .hero-gradient {
-      background: linear-gradient(135deg, #5dade2 0%, #67e8f9 100%);
+      background: linear-gradient(135deg, #4a5c8a 0%, #4a5c8a 100%);
     }
     
     .card-hover {
@@ -70,7 +70,7 @@
     }
     
     .cta-button {
-      background: linear-gradient(45deg, #5eead4, #67e8f9);
+      background: linear-gradient(45deg, #53aae8, #53aae8);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -145,10 +145,67 @@
       left: 20%;
       animation: float 12s ease-in-out infinite;
     }
+
+    /* Testimonials Styles */
+    .testimonials-container {
+      position: relative;
+      width: 100%;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .testimonial-slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 64rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      padding: 0 1rem;
+    }
+    
+    .testimonial-active {
+      opacity: 1;
+    }
+    
+    .testimonial-hidden {
+      opacity: 0;
+    }
+    
+    .dot.active {
+      background-color: #3b82f6;
+      transform: scale(1.2);
+    }
+
+    /* Service Details Styles */
+    .service-details {
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .service-details.hidden {
+      max-height: 0;
+      opacity: 0;
+    }
+    
+    .service-details.visible {
+      max-height: 500px;
+      opacity: 1;
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800">
   
+  <!-- Logo Section -->
+  <div class="absolute top-4 right-4 z-50">
+    <!-- Replace 'logo.png' with your actual logo file -->
+    <img src="logo.png" alt="לוגו שי לוי תכנון פיננסי" class="h-90 md:h-96 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
+  </div>
+
   <!-- Hero Section -->
   <section class="hero-gradient relative min-h-screen flex items-center justify-center text-white">
     <div class="floating-shapes">
@@ -163,38 +220,39 @@
       </div>
     </div>
     
-    <div class="max-w-6xl mx-auto text-center px-4 relative z-10">
+    <div class="container mx-auto text-center px-4 relative z-10 max-w-6xl">
       <div class="animate-fadeInUp">
         <!-- Personal Photo -->
         <div class="mb-8">
-          <div class="w-32 h-32 md:w-80 md:h-80 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-2xl mb-6">
-            <img src="/home/avihai/repos/ShayLeviLandingPage/image.png" alt="תמונה אישית" class="w-full h-full object-cover">
+          <div class="w-48 h-48 md:w-80 md:h-80 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-2xl mb-6">
+            <img src="image.png" alt="תמונה אישית" class="w-full h-full object-cover">
           </div>
-          <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-            תכנון פיננסי <span class="text-yellow-300">בטוח</span>
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            תכנון פיננסי בטוח
             <br>לעתיד שלך
           </h1>
         </div>
         
         <!-- Personal Paragraph -->
         <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 max-w-4xl mx-auto">
-          <div class="text-lg md:text-xl leading-relaxed text-white/95 text-right space-y-4">
+          <div class="text-lg md:text-xl leading-relaxed text-white/95 text-center space-y-4" dir="rtl">
             <p>שלום, שמי <strong>שי לוי</strong>, נשוי לבתאל ואבא לליאן ומיאל.</p>
             <p>אני חי ונושם את תחום הביטוח, פנסיה ופיננסים בעשור האחרון ובעל רישיון פנסיוני מטעם משרד האוצר.</p>
             <p>המטרה שלי להיות הרבה מעבר לסוכן ביטוח, אני מאמין גדול בכך שתפקידי להיות מנהל הסיכונים והפיננסים של הלקוחות שלי, ללוות אותם לאורך כל צמתי החיים - ברגעים היפים והשמחים וגם ברגעים הקשים.</p>
             <p>הכל במקצועיות ובשיחה פשוטה ונעימה.</p>
-            <p>אני מזמין אתכם לתאם איתי פגישה, ללא כל התחייבות. מוזמנים לפנות אליי בכל דרך שנוחה לכם.</p>
-            <p class="font-semibold">שלכם, שי.</p>
+            <p>אני מזמין אתכם לתאם איתי פגישה, ללא כל התחייבות.</p>
+            <p> מוזמנים לפנות אליי בכל דרך שנוחה לכם.</p>
+            <p class="font-semibold">שלכם, שי</p>
           </div>
         </div>
-        
+
         <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-          סוכן מוסמך לפנסיה, ביטוחים וקרנות השתלמות עם ניסיון של שנים בתחום הפיננסי
+          סוכן ביטוח פנסיוני בעל רישיון פנסיוני מטעם משרד האוצר
         </p>
         
         <!-- Contact Icons Row -->
         <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
-          <a href="tel:054-644-182" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+          <a href="tel:054-644-7182" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
             <i class="fas fa-phone text-2xl"></i>
           </a>
           <a href="https://wa.me/972546447182" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
@@ -222,7 +280,7 @@
 
   <!-- Services Section -->
   <section class="py-20 bg-white relative" id="services">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center mb-16 animate-fadeInUp">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">השירותים שלי</h2>
         <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
@@ -232,12 +290,44 @@
       <div class="grid gap-8 md:grid-cols-3">
         <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
           <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-piggy-bank text-2xl text-white"></i>
+            <i class="fas fa-chart-line text-2xl text-white"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">תוכניות פנסיה</h3>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">תוכניות פנסיוניות ופיננסיות</h3>
           <p class="text-gray-600 leading-relaxed">תכנון פנסיוני מותאם אישית לפי הצרכים והיעדים שלך. ליווי מקצועי לכל תקופת החיסכון.</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('pension')">למידע נוסף →</span>
+          </div>
+          <div id="pension-details" class="service-details mt-6 hidden">
+            <ul class="text-right text-gray-700 space-y-2">
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>קרנות פנסיה</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>קרנות השתלמות</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>קופות גמל</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>קופות גמל להשקעה</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>פוליסת חסכון פיננסי</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>תיקון 190</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח מנהלים</span>
+              </li>
+            </ul>
           </div>
         </div>
         
@@ -248,19 +338,184 @@
           <h3 class="text-2xl font-bold mb-4 text-gray-800">ביטוחים</h3>
           <p class="text-gray-600 leading-relaxed">ביטוח חיים, בריאות ואישי עם ליווי מקצועי לאורך כל הדרך. הגנה מקסימלית למשפחתך.</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('insurance')">למידע נוסף →</span>
+          </div>
+          <div id="insurance-details" class="service-details mt-6 hidden">
+            <ul class="text-right text-gray-700 space-y-2">
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח חיים</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח משכנתא</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח בריאות</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח מחלות קשות</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח תאונות אישיות</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח סיעודי</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>ביטוח אובדן כושר עבודה</span>
+              </li>
+              <li class="flex items-center justify-start gap-2">
+                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <span>מטריה ביטוחית</span>
+              </li>
+            </ul>
           </div>
         </div>
         
         <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
           <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-chart-line text-2xl text-white"></i>
+            <i class="fas fa-plane text-2xl text-white"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">קרנות השתלמות</h3>
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">ביטוח נסיעות לחו"ל</h3>
           <p class="text-gray-600 leading-relaxed">ייעוץ והכוונה לבחירת קרנות השתלמות מתאימות לחיסכון ארוך טווח ויעדים אישיים.</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer">למידע נוסף →</span>
+            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('travel')">למידע נוסף →</span>
           </div>
+          <div id="travel-details" class="service-details mt-6 hidden">
+            <p class="text-gray-600 text-center">נוסיף אותו בהמשך</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden" id="testimonials">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-16 animate-fadeInUp">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">המלצות מלקוחות</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">המלצות אמיתיות מלקוחות מרוצים שבחרו בליווי המקצועי שלי</p>
+      </div>
+
+      <!-- Testimonials Container -->
+      <div class="relative">
+        <div class="testimonials-container min-h-[400px] flex items-center justify-center">
+          
+          <!-- Testimonial 1 - סהר לולו -->
+          <div class="testimonial-slide testimonial-active" id="testimonial-0">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
+              <div class="absolute top-6 right-6 text-blue-200">
+                <i class="fas fa-quote-right text-4xl"></i>
+              </div>
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    ס.ל
+                  </div>
+                </div>
+                <div class="text-center md:text-right flex-1">
+                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                    "שי יא תותח אני שמח שהכרתי אותך, בזכותך עכשיו יש לי מושג בכלל על מה אני שם כספים בפנסיות ובקרנות השתלמות, איש שיח עונה תמיד לטלפון סבלני.<br> תודה רבה על השירות אמליץ עליך !"
+                  </p>
+                  <h4 class="font-bold text-gray-800 text-lg">סהר לולו</h4>
+                  <p class="text-gray-500">בעל עסק</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 - לירן צ'רצ'י -->
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-1">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
+              <div class="absolute top-6 right-6 text-blue-200">
+                <i class="fas fa-quote-right text-4xl"></i>
+              </div>
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    ל.צ
+                  </div>
+                </div>
+                <div class="text-center md:text-right flex-1">
+                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                    "אני רוצה להודות לשי לוי על השירות המצויין שנתן לי ולמשפחתי. אחרי שנים שאני ואשתי לא התעסקנו בתיק הפנסיוני/ביטוחי שלנו, הבנו שצריך סוכן אחד שיעשה לנו סדר בראש ובתיק. שי ישב איתנו בפגישה ללא התחייבות ופשוט התאהבנו בו. מסביר בצורה מפורטת ומקצועית. הוא סבלני מאוד, קשוב וזמין לכל שאלה. תודה 🙏🏽"
+                  </p>
+                  <h4 class="font-bold text-gray-800 text-lg">לירן צ'רצ'י</h4>
+                  <p class="text-gray-500">לקוח מרוצה</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 - דנה אלקולומברי -->
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-2">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
+              <div class="absolute top-6 right-6 text-blue-200">
+                <i class="fas fa-quote-right text-4xl"></i>
+              </div>
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    ד.א
+                  </div>
+                </div>
+                <div class="text-center md:text-right flex-1">
+                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                    "שי היקר, תודה מכל הלב על שירות ברמה הכי גבוהה שיש, על מקצועיות בלתי מתפשרת, יחס אישי ונעים, זמינות והכי חשוב אמינות ואנושיות. זה ממש לא מובן מאליו בתחום הזה. מאחלת לך שתעלה ותצליח כי הכי מגיע לך!! מכל הלב🩷"
+                  </p>
+                  <h4 class="font-bold text-gray-800 text-lg">דנה אלקולומברי</h4>
+                  <p class="text-gray-500">לקוחה מרוצה</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 - יוסף סרור -->
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-3">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
+              <div class="absolute top-6 right-6 text-blue-200">
+                <i class="fas fa-quote-right text-4xl"></i>
+              </div>
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                  <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    י.ס
+                  </div>
+                </div>
+                <div class="text-center md:text-right flex-1">
+                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                    "סוכן ביטוח שהוא מתנה. מתנה שכל אחד היה רוצה לקבל. מתנה שנותנת שקט, ביטחון. ידיעה שהוא תמיד שם בשבילך. זמין לכל שאלה. דואג לאינטרס שלך מול הגופים השונים. דואג שיהיה לך הכי טוב שאפשר. שי, כשמך כך אתה. מתנה. תודה על הכל🙏"
+                  </p>
+                  <h4 class="font-bold text-gray-800 text-lg">יוסף סרור</h4>
+                  <p class="text-gray-500">לקוח מרוצה</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="previousSlide()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="nextSlide()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots Navigation -->
+        <div class="flex justify-center mt-8 gap-3">
+          <button class="w-3 h-3 rounded-full bg-blue-500 transition-all duration-300 dot active" onclick="goToSlide(0)"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(1)"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(2)"></button>
+          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(3)"></button>
         </div>
       </div>
     </div>
@@ -268,7 +523,7 @@
 
   <!-- Contact Form -->
   <section class="py-20 bg-white" id="contact">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-6xl">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         
         <!-- Contact Info -->
@@ -277,7 +532,7 @@
           <p class="text-xl text-gray-600 mb-8">השאירו פרטים ואחזור אליכם תוך 24 שעות לייעוץ ראשוני חינם</p>
           
           <div class="space-y-6">
-            <div class="flex items-center gap-4">
+            <a href="tel:054-644-7182" class="flex items-center gap-4 p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 cursor-pointer">
               <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                 <i class="fas fa-phone text-blue-600"></i>
               </div>
@@ -285,19 +540,18 @@
                 <div class="font-semibold">טלפון</div>
                 <div class="text-gray-600">054-644-7182</div>
               </div>
-            </div>
+            </a>
             
-            <div class="flex items-center gap-4">
+            <a href="https://wa.me/972546447182" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition-all duration-300 hover:scale-105 cursor-pointer">
               <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                 <i class="fab fa-whatsapp text-green-600"></i>
               </div>
               <div>
                 <div class="font-semibold">WhatsApp</div>
-                <div class="text-gray-600">זמין 24/7</div>
               </div>
-            </div>
+            </a>
             
-            <div class="flex items-center gap-4">
+            <a href="mailto:shay@tmu.co.il" class="flex items-center gap-4 p-4 rounded-xl hover:bg-purple-50 transition-all duration-300 hover:scale-105 cursor-pointer">
               <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                 <i class="fas fa-envelope text-purple-600"></i>
               </div>
@@ -305,13 +559,13 @@
                 <div class="font-semibold">אימייל</div>
                 <div class="text-gray-600">shay@tmu.co.il</div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         
         <!-- Contact Form -->
         <div class="animate-fadeInUp">
-          <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
+          <form action="https://formsubmit.co/shay@tmu.co.il" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="thank-you.html">
             <input type="text" name="_honey" style="display:none">
@@ -348,7 +602,7 @@
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-6xl">
       <div class="grid md:grid-cols-3 gap-8">
         
         <div>
@@ -360,8 +614,8 @@
           <h4 class="text-lg font-semibold mb-4">קישורים מהירים</h4>
           <ul class="space-y-2 text-gray-300">
             <li><a href="#services" class="hover:text-white transition">השירותים שלי</a></li>
+            <li><a href="#testimonials" class="hover:text-white transition">המלצות לקוחות</a></li>
             <li><a href="#contact" class="hover:text-white transition">צור קשר</a></li>
-            <li><a href="#" class="hover:text-white transition">אודות</a></li>
           </ul>
         </div>
         
@@ -389,6 +643,80 @@
   </footer>
 
   <script>
+    // Service Details Toggle Function
+    function toggleServiceDetails(serviceType) {
+      const detailsElement = document.getElementById(serviceType + '-details');
+      
+      if (detailsElement.classList.contains('hidden')) {
+        detailsElement.classList.remove('hidden');
+        detailsElement.classList.add('visible');
+      } else {
+        detailsElement.classList.remove('visible');
+        detailsElement.classList.add('hidden');
+      }
+    }
+
+    // Testimonials Slider Functions
+    let currentSlide = 0;
+    const totalSlides = 4;
+    
+    function updateSlider() {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.dot');
+      
+      // Hide all slides
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.remove('testimonial-hidden');
+          slide.classList.add('testimonial-active');
+        } else {
+          slide.classList.remove('testimonial-active');
+          slide.classList.add('testimonial-hidden');
+        }
+      });
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('active');
+          dot.classList.remove('bg-gray-300');
+          dot.classList.add('bg-blue-500');
+        } else {
+          dot.classList.remove('active');
+          dot.classList.remove('bg-blue-500');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+    
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+    
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateSlider();
+    }
+    
+    // Auto-play functionality - slides every 4 seconds
+    let autoPlay = setInterval(nextSlide, 4000);
+    
+    // Pause auto-play on hover
+    const testimonialsSection = document.getElementById('testimonials');
+    testimonialsSection.addEventListener('mouseenter', () => {
+      clearInterval(autoPlay);
+    });
+    
+    testimonialsSection.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(nextSlide, 4000);
+    });
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
