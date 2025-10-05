@@ -193,9 +193,23 @@
     }
     
     .service-details.visible {
-      
       max-height: 500px;
       opacity: 1;
+    }
+
+    /* Modal Styles */
+    #successModal {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    #successModal.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    #successModal.show .modal-content {
+      transform: scale(1);
     }
   </style>
 </head>
@@ -524,6 +538,22 @@
     </div>
   </section>
 
+    <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden transition-opacity duration-300">
+    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 transform transition-all duration-300 scale-95 modal-content">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-check text-green-600 text-4xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">ההודעה נשלחה בהצלחה!</h3>
+        <p class="text-gray-600 mb-6">תודה שפנית אלינו. נחזור אליך בהקדם האפשרי.</p>
+        <button id="closeModal" class="cta-button text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+          סגור
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Contact Form -->
   <section class="py-20 bg-white" id="contact">
     <div class="container mx-auto px-4 max-w-6xl">
@@ -570,6 +600,9 @@
         <div class="animate-fadeInUp">
           <form id="contactForm" form action="https://formsubmit.co/shay@tmu.co.il" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
             <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://avihai119.github.io/ShayLeviLandingPage/?success=true">
             <input type="text" name="_honey" style="display:none">
             
             <div>
@@ -741,60 +774,43 @@
       observer.observe(el);
     });
 
-    const form = document.getElementById('contactForm');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const closeModalButton = document.getElementById('closeModal');
-
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault(); // מונע שליחת טופס רגילה
-
-        const formData = new FormData(form);
-        const object = {};
-        formData.forEach((value, key) => {
-          object[key] = value;
-        });
-        const json = JSON.stringify(object);
-
-        fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        })
-        .then(response => {
-          // FormSubmit תמיד מחזיר 200/302 לאחר שליחת POST מוצלחת עם Accept: application/json
-          if (response.ok) {
-            form.reset(); // איפוס הטופס
-            modalOverlay.classList.add('active'); // הצגת ה-Modal
-          } else {
-            // טיפול בשגיאה אפשרית
-            alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב או פנה בטלפון.');
-          }
-        })
-        .catch(error => {
-          console.error('שגיאה:', error);
-          alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב או פנה בטלפון.');
-        });
-      });
+    // Check if redirected back with success parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      const modal = document.getElementById('successModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('show');
+        // Remove success parameter from URL without reloading
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
     }
 
-    // סגירת ה-Modal
+    // Close modal functionality
+    const closeModalButton = document.getElementById('closeModal');
+    const successModal = document.getElementById('successModal');
+
     if (closeModalButton) {
       closeModalButton.addEventListener('click', () => {
-        modalOverlay.classList.remove('active');
+        successModal.classList.remove('show');
+        setTimeout(() => {
+          successModal.classList.add('hidden');
+        }, 300);
       });
     }
 
-    // סגירת ה-Modal בלחיצה מחוצה לו
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          modalOverlay.classList.remove('active');
+    // Close modal when clicking outside
+    if (successModal) {
+      successModal.addEventListener('click', (e) => {
+        if (e.target === successModal) {
+          successModal.classList.remove('show');
+          setTimeout(() => {
+            successModal.classList.add('hidden');
+          }, 300);
         }
       });
-    }s
+    }
+  </script>
   </script>
 </body>
 </html>
