@@ -568,9 +568,8 @@
         
         <!-- Contact Form -->
         <div class="animate-fadeInUp">
-          <form action="https://formsubmit.co/shay@tmu.co.il" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
+          <form id="contactForm" form action="https://formsubmit.co/shay@tmu.co.il" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="thank-you.html">
             <input type="text" name="_honey" style="display:none">
             
             <div>
@@ -741,6 +740,61 @@
       el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       observer.observe(el);
     });
+
+    const form = document.getElementById('contactForm');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModalButton = document.getElementById('closeModal');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // מונע שליחת טופס רגילה
+
+        const formData = new FormData(form);
+        const object = {};
+        formData.forEach((value, key) => {
+          object[key] = value;
+        });
+        const json = JSON.stringify(object);
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        })
+        .then(response => {
+          // FormSubmit תמיד מחזיר 200/302 לאחר שליחת POST מוצלחת עם Accept: application/json
+          if (response.ok) {
+            form.reset(); // איפוס הטופס
+            modalOverlay.classList.add('active'); // הצגת ה-Modal
+          } else {
+            // טיפול בשגיאה אפשרית
+            alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב או פנה בטלפון.');
+          }
+        })
+        .catch(error => {
+          console.error('שגיאה:', error);
+          alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב או פנה בטלפון.');
+        });
+      });
+    }
+
+    // סגירת ה-Modal
+    if (closeModalButton) {
+      closeModalButton.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+      });
+    }
+
+    // סגירת ה-Modal בלחיצה מחוצה לו
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.classList.remove('active');
+        }
+      });
+    }s
   </script>
 </body>
 </html>
