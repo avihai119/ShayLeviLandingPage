@@ -150,7 +150,9 @@
     .testimonials-container {
       position: relative;
       width: 100%;
-      min-height: 450px;
+      /* FIX #4: הוספת padding אנכי במקום גובה קשיח (min-height) כדי למנוע גלישה */
+      padding: 50px 0; 
+      min-height: 400px; /* גובה מינימלי גמיש יותר */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -212,9 +214,10 @@
       transform: scale(1);
     }
 
+    /* FIX #1 - הוספת הזחה ספציפית לרשימות השירותים */
     .service-details ul {
       list-style: none;
-      padding-right: 0;
+      padding-right: 25px; /* תוקן מ-0 ל-25px */
       margin: 0;
     }
 
@@ -224,27 +227,27 @@
 
     .service-details li {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-start; /* שונה מ-center ל-flex-start ליישור טקסט ארוך */
+      gap: 0.75rem; /* הגדלת מרווח */
     }
 
+    /* FIX #2 & #3 - כללים גורפים: הוספת הזחה והגדלת מרווחים */
     ul {
       list-style: none !important;
-      padding-right: 25px !important; 
+      padding-right: 25px !important; /* תוקן מ-0 ל-25px, כדי להזיח את הרשימה כולה */
       margin: 0 !important;
     }
 
     li {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: 1rem; /* תוקן מ-0.5rem ל-1rem, כדי להגדיל את המרווח בין הבולט לטקסט */
     }
 
     ul, li, p {
       direction: rtl;
       text-align: right;
     }
-
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
