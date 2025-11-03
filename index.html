@@ -212,10 +212,9 @@
       transform: scale(1);
     }
 
-    /* FIX #1 - הוספת הזחה ספציפית לרשימות השירותים */
     .service-details ul {
       list-style: none;
-      padding-right: 20px; /* תוקן מ-0 ל-20px */
+      padding-right: 0;
       margin: 0;
     }
 
@@ -229,17 +228,16 @@
       gap: 0.5rem;
     }
 
-    /* FIX #2 & #3 - כללים גורפים: הוספת הזחה והגדלת מרווחים */
     ul {
       list-style: none !important;
-      padding-right: 25px !important; /* תוקן מ-0 ל-25px, כדי להזיח את הרשימה כולה */
+      padding-right: 25px !important; 
       margin: 0 !important;
     }
 
     li {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem; /* תוקן מ-0.5rem ל-0.75rem, כדי להגדיל את המרווח בין הבולט לטקסט */
+      gap: 0.75rem;
     }
 
     ul, li, p {
