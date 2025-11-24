@@ -150,12 +150,12 @@
     .testimonials-container {
       position: relative;
       width: 100%;
-      /* FIX #4: הוספת padding אנכי במקום גובה קשיח (min-height) כדי למנוע גלישה */
       padding: 50px 0; 
-      min-height: 400px; /* גובה מינימלי גמיש יותר */
+      min-height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: height 0.3s ease-in-out; /* הוספה: מעבר חלק לשינויי גובה */
     }
     
     .testimonial-slide {
@@ -217,7 +217,7 @@
     /* FIX #1 - הוספת הזחה ספציפית לרשימות השירותים */
     .service-details ul {
       list-style: none;
-      padding-right: 25px; /* תוקן מ-0 ל-25px */
+      padding-right: 25px;
       margin: 0;
     }
 
@@ -227,21 +227,21 @@
 
     .service-details li {
       display: flex;
-      align-items: flex-start; /* שונה מ-center ל-flex-start ליישור טקסט ארוך */
-      gap: 0.75rem; /* הגדלת מרווח */
+      align-items: flex-start;
+      gap: 0.75rem;
     }
 
     /* FIX #2 & #3 - כללים גורפים: הוספת הזחה והגדלת מרווחים */
     ul {
       list-style: none !important;
-      padding-right: 25px !important; /* תוקן מ-0 ל-25px, כדי להזיח את הרשימה כולה */
+      padding-right: 25px !important;
       margin: 0 !important;
     }
 
     li {
       display: flex;
       align-items: flex-start;
-      gap: 1rem; /* תוקן מ-0.5rem ל-1rem, כדי להגדיל את המרווח בין הבולט לטקסט */
+      gap: 1rem;
     }
 
     ul, li, p {
@@ -692,12 +692,18 @@
     // Testimonials Slider Functions
     let currentSlide = 0;
     const totalSlides = 4;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    const container = document.querySelector('.testimonials-container');
+
+    function setContainerHeight() {
+      const activeSlide = slides[currentSlide];
+      const slideHeight = activeSlide.offsetHeight;
+      container.style.height = `${slideHeight + 20}px`; 
+    }
     
     function updateSlider() {
-      const slides = document.querySelectorAll('.testimonial-slide');
-      const dots = document.querySelectorAll('.dot');
       
-      // Hide all slides
       slides.forEach((slide, index) => {
         if (index === currentSlide) {
           slide.classList.remove('testimonial-hidden');
@@ -708,7 +714,6 @@
         }
       });
       
-      // Update dots
       dots.forEach((dot, index) => {
         if (index === currentSlide) {
           dot.classList.add('active');
@@ -720,6 +725,8 @@
           dot.classList.add('bg-gray-300');
         }
       });
+
+      setTimeout(setContainerHeight, 50); 
     }
     
     function nextSlide() {
@@ -748,6 +755,11 @@
     
     testimonialsSection.addEventListener('mouseleave', () => {
       autoPlay = setInterval(nextSlide, 4000);
+    });
+
+    // Initial load check for height and slides
+    window.addEventListener('load', () => {
+        updateSlider(); 
     });
 
     // Smooth scrolling for anchor links
@@ -823,7 +835,6 @@
         }
       });
     }
-  </script>
   </script>
 </body>
 </html>
