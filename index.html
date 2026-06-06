@@ -215,7 +215,6 @@
       transform: scale(1);
     }
 
-    /* FIX #1 - הוספת הזחה ספציפית לרשימות השירותים */
     .service-details ul {
       list-style: none;
       padding-right: 25px;
@@ -232,7 +231,6 @@
       gap: 0.75rem;
     }
 
-    /* FIX #2 & #3 - כללים גורפים: הוספת הזחה והגדלת מרווחים */
     ul {
       list-style: none !important;
       padding-right: 25px !important;
@@ -284,17 +282,17 @@
           </h1>
         </div>
         
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 max-w-4xl mx-auto">
-          <div class="text-lg md:text-xl leading-relaxed text-white/95 text-center space-y-4" dir="rtl">
-            <p>שלום, שמי <strong>שי לוי</strong>, נשוי לבתאל ואבא לליאן ומיאל.</p>
-            <p>אני חי ונושם את תחום הביטוח, פנסיה ופיננסים בעשור האחרון ובעל רישיון פנסיוני מטעם משרד האוצר.</p>
-            <p>המטרה שלי להיות הרבה מעבר לסוכן ביטוח, אני מאמין גדול בכך שתפקידי להיות מנהל הסיכונים והפיננסים של הלקוחות שלי, ללוות אותם לאורך כל צמתי החיים - ברגעים היפים והשמחים וגם ברגעים הקשים.</p>
-            <p>הכל במקצועיות ובשיחה פשוטה ונעימה.</p>
-            <p>אני מזמין אתכם לתאם איתי פגישה, ללא כל התחייבות.</p>
-            <p> מוזמנים לפנות אליי בכל דרך שנוחה לכם.</p>
-            <p class="font-semibold">שלכם, שי</p>
-          </div>
-        </div>
+    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 max-w-4xl mx-auto">
+      <div class="text-lg md:text-xl leading-relaxed text-white/95 !text-center space-y-4" dir="rtl">
+        <p class="w-full !text-center">שלום, שמי <strong>שי לוי</strong>, נשוי לבתאל ואבא לליאן ומיאל.</p>
+        <p class="w-full !text-center">אני חי ונושם את תחום הביטוח, פנסיה ופיננסים בעשור האחרון ובעל רישיון פנסיוני מטעם משרד האוצר.</p>
+        <p class="w-full !text-center">המטרה שלי להיות הרבה מעבר לסוכן ביטוח, אני מאמין גדול בכך שתפקידי להיות מנהל הסיכונים והפיננסים של הלקוחות שלי, ללוות אותם לאורך כל צמתי החיים - ברגעים היפים והשמחים וגם ברגעים הקשים.</p>
+        <p class="w-full !text-center">הכל במקצועיות ובשיחה פשוטה ונעימה.</p>
+        <p class="w-full !text-center">אני מזמין אתכם לתאם איתי פגישה, ללא כל התחייבות.</p>
+        <p class="w-full !text-center">מוזמנים לפנות אליי בכל דרך שנוחה לכם.</p>
+        <p class="font-semibold w-full !text-center">שלכם, שי</p>
+      </div>
+    </div>
 
         <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
           סוכן ביטוח פנסיוני בעל רישיון פנסיוני מטעם משרד האוצר
@@ -668,13 +666,34 @@
 
     </div>
 
-    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400" dir="ltr">
-      <p class="text-sm">© 2025 Created by Avihai Levi. All rights reserved.</p>
-    </div>
+  <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400" dir="rtl">
+    <p class="text-sm">© 2026 כל הזכויות שמורות לאביחי לוי.</p>
+  </div>
 
   </div>
 </footer>
 
+<div id="cookieConsent" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white text-gray-800 p-6 rounded-2xl shadow-2xl border border-gray-100 z-50 transition-all duration-500 transform translate-y-0" style="display: block;">
+  <div class="flex items-start gap-4" dir="rtl">
+    <div class="bg-blue-50 text-blue-600 p-3 rounded-xl sticky top-0">
+      <i class="fas fa-cookie-bite text-xl"></i>
+    </div>
+    <div class="flex-1 text-right">
+      <h3 class="text-lg font-bold text-gray-900 mb-1">חוויית הגלישה שלך חשובה לנו</h3>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">
+        האתר שלנו משתמש בעוגיות (Cookies) כדי להבטיח לך את חוויית המשתמש הטובה ביותר, להתאים עבורך תכנים ולנתח את תנועת הגולשים. המשך הגלישה באתר מהווה הסכמה לשימוש זה.
+      </p>
+      <div class="flex items-center justify-end gap-3">
+        <button onclick="document.getElementById('cookieConsent').style.display='none';" class="text-sm font-semibold text-gray-500 hover:text-gray-700 px-3 py-2 transition">
+          סגור
+        </button>
+        <button onclick="document.getElementById('cookieConsent').style.display='none';" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 rounded-xl transition shadow-md hover:shadow-lg">
+          מאשר/ת, המשך באתר
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script>
     // Service Details Toggle Function
@@ -689,6 +708,8 @@
         detailsElement.classList.add('hidden');
       }
     }
+
+    setTimeout(() => document.getElementById('cookieConsent').style.display = 'none', 8000);
 
     // Testimonials Slider Functions
     let currentSlide = 0;
