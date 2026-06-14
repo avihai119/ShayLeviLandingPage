@@ -247,6 +247,12 @@
       direction: rtl;
       text-align: right;
     }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #2563eb !important;
+      outline-offset: 2px !important;
+  }
+
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -329,7 +335,7 @@
       <div class="text-center mb-16 animate-fadeInUp">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">השירותים שלי</h2>
         <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">פתרונות פיננסיים מקצועיים ומותאמים אישית לכל לקוח</p>
+        <p class="text-xl !text-center text-gray-600 max-w-2xl mx-auto">פתרונות פיננסיים מקצועיים ומותאמים אישית לכל לקוח</p>
       </div>
       
       <div class="grid gap-8 md:grid-cols-3">
@@ -447,7 +453,7 @@
       <div class="text-center mb-16 animate-fadeInUp">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">המלצות מלקוחות</h2>
         <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">המלצות אמיתיות מלקוחות מרוצים שבחרו בליווי המקצועי שלי</p>
+        <p class="text-xl !text-center text-gray-600 max-w-2xl mx-auto">המלצות אמיתיות מלקוחות מרוצים שבחרו בליווי המקצועי שלי</p>
       </div>
 
       <div class="relative">
@@ -653,8 +659,7 @@
   <footer class="bg-gray-800 text-white py-12">
   <div class="container mx-auto px-4 max-w-4xl">
     
-    <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
-      
+    <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">  
       <div>
         <h4 class="text-lg font-semibold mb-4">קישורים מהירים</h4>
         <ul class="space-y-2 text-gray-300">
@@ -663,11 +668,11 @@
           <li><a href="#contact" class="hover:text-white hover:underline transition">צור קשר</a></li>
         </ul>
       </div>
-
     </div>
 
   <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400" dir="rtl">
     <p class="text-sm">© 2026 כל הזכויות שמורות לאביחי לוי.</p>
+    <a href="#accessibility-modal" onclick="document.getElementById('accessibilityStatementModal').classList.remove('hidden')" class="underline hover:text-blue-600 mr-4">הצהרת נגישות</a>
   </div>
 
   </div>
@@ -858,5 +863,126 @@
       });
     }
   </script>
+
+  <div class="fixed bottom-6 left-6 z-50 no-accessibility-target">
+    <button onclick="document.getElementById('accessibilityMenu').classList.toggle('hidden')" 
+            class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+            title="תפריט נגישות">
+      <i class="fas fa-universal-access text-2xl"></i>
+    </button>
+
+    <div id="accessibilityMenu" class="hidden absolute bottom-14 left-0 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 text-right" dir="rtl">
+      <h3 class="font-bold text-gray-900 border-b pb-2 mb-3 flex items-center gap-2">
+        <i class="fas fa-universal-access text-blue-600"></i>
+        תפריט נגישות
+      </h3>
+      <div class="space-y-2">
+        <button onclick="toggleAccessibility('contrast')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-adjust text-gray-400 w-5 text-center"></i> ניגודיות גבוהה
+        </button>
+        <button onclick="toggleAccessibility('links')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-link text-gray-400 w-5 text-center"></i> הדגשת קישורים
+        </button>
+        <button onclick="toggleAccessibility('zoomIn')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-search-plus text-gray-400 w-5 text-center"></i> הגדלת טקסט
+        </button>
+        <button onclick="toggleAccessibility('zoomOut')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-search-minus text-gray-400 w-5 text-center"></i> הקטנת טקסט
+        </button>
+        <button onclick="toggleAccessibility('reset')" class="w-full text-center mt-2 p-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold transition border-t">
+          איפוס הגדרות
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="accessibilityStatementModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[80vh] overflow-y-auto text-right" dir="rtl">
+    <div class="flex justify-between items-center border-b pb-3 mb-4">
+      <h3 class="text-xl font-bold text-gray-900">הצהרת נגישות - שי לוי תכנון פיננסי</h3>
+      <button onclick="document.getElementById('accessibilityStatementModal').classList.add('hidden')" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+    </div>
+    <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
+      <p>אנו רואים בחשיבות רבה במתן שירות שוויוני לכלל הגולשים ומקדישים משאבים רבים להנגשת האתר. ההתאמות בוצעו בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקנות נגישות לשירות.</p>
+      <h4 class="font-bold text-base text-gray-900">רמת הנגישות:</h4>
+      <p>האתר מונגש ברמת AA לפי הנחיות תקינה הבינלאומית WCAG 2.0.<br> באתר מותקן סרגל נגישות המאפשר שינוי גודל גופן, שינוי ניגודיות והדגשת קישורים.</p>
+      <h4 class="font-bold text-base text-gray-900">תאימות דפדפנים ומערכות הפעלה:</h4>
+      <p>האתר נבדק ונמצא תואם לדפדפנים המובילים (Chrome, Edge, Safari, Firefox) ומותאם לשימוש במכשירים ניידים ובדסקטופ.</p>
+      <h4 class="font-bold text-base text-gray-900">פרטי רכז נגישות:</h4>
+      <p>אם נתקלתם בקושי בגלישה באתר או שיש לכם הצעת שיפור, נשמח לעמוד לרשותכם:<br>
+      <strong>שם:</strong> שי לוי <br>
+      <strong>טלפון:</strong> 054-644-7182 <br>
+      <strong>אימייל:</strong> shay@tmu.co.il </p>
+      <p>תאריך עדכון ההצהרה: יוני 2026</p>
+    </div>
+  </div>
+</div>
+
+  <script>
+    let currentZoom = 100;
+    let contrastActive = false;
+    let linksActive = false;
+
+    function toggleAccessibility(action) {
+      if (action === 'zoomIn' && currentZoom < 130) {
+        currentZoom += 10;
+        document.body.style.zoom = currentZoom + '%';
+      } 
+      else if (action === 'zoomOut' && currentZoom > 90) {
+        currentZoom -= 10;
+        document.body.style.zoom = currentZoom + '%';
+      } 
+      else if (action === 'contrast') {
+        contrastActive = !contrastActive;
+        if (contrastActive) {
+          // הפעלת מצב ניגודיות גבוהה ע"י פילטר מובנה בדפדפן
+          document.body.style.filter = 'contrast(1.4) saturate(1.2)';
+          document.body.classList.add('bg-black');
+        } else {
+          document.body.style.filter = 'none';
+          document.body.classList.remove('bg-black');
+        }
+      } 
+      else if (action === 'links') {
+        linksActive = !linksActive;
+        const links = document.querySelectorAll('a:not(.no-accessibility-target a)');
+        links.forEach(link => {
+          if (linksActive) {
+            link.style.textDecoration = 'underline';
+            link.style.fontWeight = 'bold';
+            link.style.color = '#2563eb'; // כחול נגיש
+          } else {
+            link.style.textDecoration = '';
+            link.style.fontWeight = '';
+            link.style.color = '';
+          }
+        });
+      } 
+      else if (action === 'reset') {
+        currentZoom = 100;
+        contrastActive = false;
+        linksActive = false;
+        document.body.style.zoom = '100%';
+        document.body.style.filter = 'none';
+        document.body.classList.remove('bg-black');
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.textDecoration = '';
+          link.style.fontWeight = '';
+          link.style.color = '';
+        });
+      }
+    }
+
+    // סגירת התפריט בלחיצה מחוץ לו
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('accessibilityMenu');
+      const container = menu.parentElement;
+      if (!container.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+
 </body>
 </html>
