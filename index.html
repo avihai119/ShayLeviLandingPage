@@ -71,7 +71,7 @@
     }
     
     .cta-button {
-      background: linear-gradient(45deg, #53aae8, #53aae8);
+      background: linear-gradient(45deg, #1a7bc1, #1a7bc1);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -156,7 +156,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: height 0.3s ease-in-out; /* הוספה: מעבר חלק לשינויי גובה */
+      transition: height 0.3s ease-in-out;
     }
     
     .testimonial-slide {
@@ -251,20 +251,87 @@
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
       outline: 3px solid #2563eb !important;
       outline-offset: 2px !important;
-  }
+    }
 
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      right: 1rem;
+      top: -100px;
+      background: #1d4ed8;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      z-index: 100;
+      font-weight: 600;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* Reset native look for the "read more" toggle buttons so they look like the original spans */
+    .service-toggle-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* Enlarge dot hit-areas to 44x44 without changing the visible dot size */
+    .dot-hit {
+      background: none;
+      border: none;
+      padding: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .carousel-control-btn i {
+      pointer-events: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  
+
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
 <div class="absolute top-2 left-2 md:top-4 md:left-4 z-50">
   <img src="logo.png" 
        alt="לוגו שי לוי תכנון פיננסי" 
        class="max-h-[10vh] md:max-h-[15vh] lg:max-h-[20vh] w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
 </div>
 
+<main id="main-content">
   <section class="hero-gradient relative min-h-screen flex items-center justify-center text-white">
-    <div class="floating-shapes">
+    <div class="floating-shapes" aria-hidden="true">
       <div class="shape shape-1">
         <i class="fas fa-coins text-6xl"></i>
       </div>
@@ -280,7 +347,7 @@
       <div class="animate-fadeInUp">
         <div class="mb-8">
           <div class="w-48 h-48 md:w-80 md:h-80 mx-auto rounded-full border-4 border-white/30 overflow-hidden shadow-2xl mb-6">
-            <img src="image.png" alt="תמונה אישית" class="w-full h-full object-cover">
+            <img src="image.png" alt="תמונה של שי לוי, סוכן ביטוח פנסיוני" class="w-full h-full object-cover">
           </div>
           <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
             תכנון פיננסי בטוח
@@ -305,17 +372,17 @@
         </p>
         
         <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
-          <a href="tel:054-644-7182" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
-            <i class="fas fa-phone text-2xl"></i>
+          <a href="tel:054-644-7182" aria-label="התקשרו לשי לוי" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-phone text-2xl" aria-hidden="true"></i>
           </a>
-          <a href="https://wa.me/972546447182" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
-            <i class="fab fa-whatsapp text-2xl"></i>
+          <a href="https://wa.me/972546447182" aria-label="שלחו הודעת וואטסאפ לשי לוי" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i>
           </a>
-          <a href="mailto:shay@tmu.co.il" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
-            <i class="fas fa-envelope text-2xl"></i>
+          <a href="mailto:shay@tmu.co.il" aria-label="שלחו אימייל לשי לוי" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-envelope text-2xl" aria-hidden="true"></i>
           </a>
-          <a href="#contact" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
-            <i class="fas fa-calendar-alt text-2xl"></i>
+          <a href="#contact" aria-label="עברו לטופס תיאום פגישה" class="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-full hover:bg-opacity-30 transition-all duration-300 hover:scale-110">
+            <i class="fas fa-calendar-alt text-2xl" aria-hidden="true"></i>
           </a>
         </div>
         
@@ -325,7 +392,7 @@
       </div>
     </div>
     
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
       <i class="fas fa-chevron-down text-2xl opacity-70"></i>
     </div>
   </section>
@@ -334,48 +401,48 @@
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center mb-16 animate-fadeInUp">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">השירותים שלי</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6" aria-hidden="true"></div>
         <p class="text-xl !text-center text-gray-600 max-w-2xl mx-auto">פתרונות פיננסיים מקצועיים ומותאמים אישית לכל לקוח</p>
       </div>
       
       <div class="grid gap-8 md:grid-cols-3">
         <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
-          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
             <i class="fas fa-chart-line text-2xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-gray-800">תוכניות פנסיוניות ופיננסיות</h3>
           <p class="text-gray-600 leading-relaxed">תכנון פנסיוני מותאם אישית לפי הצרכים והיעדים שלך. ליווי מקצועי לכל תקופת החיסכון.</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('pension')">למידע נוסף →</span>
+            <button type="button" class="service-toggle-btn text-blue-600 font-semibold hover:text-blue-800" aria-expanded="false" aria-controls="pension-details" onclick="toggleServiceDetails('pension', this)">למידע נוסף →</button>
           </div>
           <div id="pension-details" class="service-details mt-6 hidden">
             <ul class="text-right text-gray-700 space-y-2">
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>קרנות פנסיה</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>קרנות השתלמות</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>קופות גמל</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>קופות גמל להשקעה</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>פוליסת חסכון פיננסי</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>תיקון 190</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח מנהלים</span>
               </li>
             </ul>
@@ -383,46 +450,46 @@
         </div>
         
         <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
-          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
             <i class="fas fa-shield-alt text-2xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-gray-800">ביטוחים</h3>
           <p class="text-gray-600 leading-relaxed">ביטוח חיים, בריאות ואובדן כושר עבודה להגנה מקסימלית לך ולמשפחתך</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('insurance')">למידע נוסף →</span>
+            <button type="button" class="service-toggle-btn text-blue-600 font-semibold hover:text-blue-800" aria-expanded="false" aria-controls="insurance-details" onclick="toggleServiceDetails('insurance', this)">למידע נוסף →</button>
           </div>
           <div id="insurance-details" class="service-details mt-6 hidden">
             <ul class="text-right text-gray-700 space-y-2">
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח חיים</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח משכנתא</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח בריאות</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח מחלות קשות</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח תאונות אישיות</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח סיעודי</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>ביטוח אובדן כושר עבודה</span>
               </li>
               <li class="flex items-center justify-start gap-2">
-                <i class="fas fa-circle text-blue-500 text-xs"></i>
+                <i class="fas fa-circle text-blue-500 text-xs" aria-hidden="true"></i>
                 <span>מטריה ביטוחית</span>
               </li>
             </ul>
@@ -430,17 +497,17 @@
         </div>
         
         <div class="card-hover bg-white p-8 shadow-lg rounded-2xl border border-gray-100 text-center">
-          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
             <i class="fas fa-plane text-2xl text-white"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-gray-800">ביטוח נסיעות לחו"ל</h3>
           <p class="text-gray-600 leading-relaxed">ביטוח נסיעות לחו"ל מותאם אישית לחופשה שקטה ומהנה</p>
           <div class="mt-6">
-            <span class="text-blue-600 font-semibold hover:text-blue-800 cursor-pointer" onclick="toggleServiceDetails('travel')">למידע נוסף →</span>
+            <button type="button" class="service-toggle-btn text-blue-600 font-semibold hover:text-blue-800" aria-expanded="false" aria-controls="travel-details" onclick="toggleServiceDetails('travel', this)">למידע נוסף →</button>
           </div>
           <div id="travel-details" class="service-details mt-6 hidden">
             <p class="text-gray-600 text-center">
-              <iframe src="https://distributor.passportcard.co.il/plugins/affiliate?pathToImage=https://marketing.passportcard.co.il/media/BB/images//02114667-0c3d-4a85-b738-8ae3f277565f.jpg&distributor=49998&agreement=5ps0B4NTCpte55Q9r1VmYg%3D%3D" width="160" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+              <iframe src="https://distributor.passportcard.co.il/plugins/affiliate?pathToImage=https://marketing.passportcard.co.il/media/BB/images//02114667-0c3d-4a85-b738-8ae3f277565f.jpg&distributor=49998&agreement=5ps0B4NTCpte55Q9r1VmYg%3D%3D" width="160" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" title="פרסום ביטוח נסיעות לחו&quot;ל - פספורטכארד"></iframe>
             </p>
           </div>
         </div>
@@ -452,21 +519,21 @@
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center mb-16 animate-fadeInUp">
         <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">המלצות מלקוחות</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6" aria-hidden="true"></div>
         <p class="text-xl !text-center text-gray-600 max-w-2xl mx-auto">המלצות אמיתיות מלקוחות מרוצים שבחרו בליווי המקצועי שלי</p>
       </div>
 
-      <div class="relative">
+      <div class="relative" role="region" aria-roledescription="קרוסלה" aria-label="המלצות לקוחות">
         <div class="testimonials-container min-h-[400px] flex items-center justify-center">
           
-          <div class="testimonial-slide testimonial-active" id="testimonial-0">
+          <div class="testimonial-slide testimonial-active" id="testimonial-0" role="group" aria-roledescription="שקופית" aria-label="1 מתוך 4" aria-hidden="false">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
-              <div class="absolute top-6 right-6 text-blue-200">
+              <div class="absolute top-6 right-6 text-blue-200" aria-hidden="true">
                 <i class="fas fa-quote-right text-4xl"></i>
               </div>
               <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-shrink-0">
-                  <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold" aria-hidden="true">
                     ס.ל
                   </div>
                 </div>
@@ -474,42 +541,42 @@
                   <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
                     "שי יא תותח אני שמח שהכרתי אותך, בזכותך עכשיו יש לי מושג בכלל על מה אני שם כספים בפנסיות ובקרנות השתלמות, איש שיח עונה תמיד לטלפון סבלני.<br> תודה רבה על השירות אמליץ עליך !"
                   </p>
-                  <h4 class="font-bold text-gray-800 text-lg">סהר לולו</h4>
+                  <h3 class="font-bold text-gray-800 text-lg">סהר לולו</h3>
                   <p class="text-gray-500">בעל עסק</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-slide testimonial-hidden" id="testimonial-1">
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-1" role="group" aria-roledescription="שקופית" aria-label="2 מתוך 4" aria-hidden="true">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
-              <div class="absolute top-6 right-6 text-blue-200">
+              <div class="absolute top-6 right-6 text-blue-200" aria-hidden="true">
                 <i class="fas fa-quote-right text-4xl"></i>
               </div>
               <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-shrink-0">
-                  <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold" aria-hidden="true">
                     ל.צ
                   </div>
                 </div>
                 <div class="text-center md:text-right flex-1">
                   <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
                    אני רוצה להודות לשי לוי על השירות המצוין שנתן לי ולמשפחתי. אחרי שנים שלא התעסקנו בתיק הפנסיוני/ביטוחי שלנו, הבנו שצריך סוכן אחד שיעשה לנו סדר בראש ובתיק. שי ישב איתי בפגישה ללא התחייבות ופשוט התרשמתי ממנו. מסביר בצורה מפורטת ומקצועית. הוא סבלני מאוד, קשוב וזמין לכל שאלה. תודה 🙏🏽                  </p>
-                  <h4 class="font-bold text-gray-800 text-lg">לירן צ'רצ'י</h4>
+                  <h3 class="font-bold text-gray-800 text-lg">לירן צ'רצ'י</h3>
                   <p class="text-gray-500">לקוח מרוצה</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-slide testimonial-hidden" id="testimonial-2">
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-2" role="group" aria-roledescription="שקופית" aria-label="3 מתוך 4" aria-hidden="true">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
-              <div class="absolute top-6 right-6 text-blue-200">
+              <div class="absolute top-6 right-6 text-blue-200" aria-hidden="true">
                 <i class="fas fa-quote-right text-4xl"></i>
               </div>
               <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-shrink-0">
-                  <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold" aria-hidden="true">
                     ד.א
                   </div>
                 </div>
@@ -517,21 +584,21 @@
                   <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
                     "שי היקר, תודה מכל הלב על שירות ברמה הכי גבוהה שיש, על מקצועיות בלתי מתפשרת, יחס אישי ונעים, זמינות והכי חשוב אמינות ואנושיות. זה ממש לא מובן מאליו בתחום הזה. מאחלת לך שתעלה ותצליח כי הכי מגיע לך!! מכל הלב🩷"
                   </p>
-                  <h4 class="font-bold text-gray-800 text-lg">דנה אלקולומברי</h4>
+                  <h3 class="font-bold text-gray-800 text-lg">דנה אלקולומברי</h3>
                   <p class="text-gray-500">לקוחה מרוצה</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-slide testimonial-hidden" id="testimonial-3">
+          <div class="testimonial-slide testimonial-hidden" id="testimonial-3" role="group" aria-roledescription="שקופית" aria-label="4 מתוך 4" aria-hidden="true">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 mx-auto max-w-4xl relative">
-              <div class="absolute top-6 right-6 text-blue-200">
+              <div class="absolute top-6 right-6 text-blue-200" aria-hidden="true">
                 <i class="fas fa-quote-right text-4xl"></i>
               </div>
               <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="flex-shrink-0">
-                  <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold" aria-hidden="true">
                     י.ס
                   </div>
                 </div>
@@ -539,7 +606,7 @@
                   <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
                     "סוכן ביטוח שהוא מתנה. מתנה שכל אחד היה רוצה לקבל. מתנה שנותנת שקט, ביטחון. ידיעה שהוא תמיד שם בשבילך. זמין לכל שאלה. דואג לאינטרס שלך מול הגופים השונים. דואג שיהיה לך הכי טוב שאפשר. שי, כשמך כך אתה. מתנה. תודה על הכל🙏"
                   </p>
-                  <h4 class="font-bold text-gray-800 text-lg">יוסף סרור</h4>
+                  <h3 class="font-bold text-gray-800 text-lg">יוסף סרור</h3>
                   <p class="text-gray-500">לקוח מרוצה</p>
                 </div>
               </div>
@@ -548,32 +615,43 @@
 
         </div>
 
-        <button class="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="previousSlide()">
-          <i class="fas fa-chevron-left"></i>
+        <button type="button" class="carousel-control-btn absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="previousSlide()" aria-label="ההמלצה הקודמת">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
         </button>
-        <button class="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="nextSlide()">
-          <i class="fas fa-chevron-right"></i>
+        <button type="button" class="carousel-control-btn absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600 z-10" onclick="nextSlide()" aria-label="ההמלצה הבאה">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
         </button>
 
-        <div class="flex justify-center mt-8 gap-3">
-          <button class="w-3 h-3 rounded-full bg-blue-500 transition-all duration-300 dot active" onclick="goToSlide(0)"></button>
-          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(1)"></button>
-          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(2)"></button>
-          <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300 dot" onclick="goToSlide(3)"></button>
+        <div class="flex justify-center items-center mt-8 gap-2">
+          <button type="button" id="carouselPauseBtn" class="carousel-control-btn w-11 h-11 flex items-center justify-center rounded-full bg-white shadow hover:shadow-md text-gray-600 hover:text-blue-600 ml-2" onclick="toggleAutoplay()" aria-pressed="false" aria-label="השהה החלפה אוטומטית של ההמלצות">
+            <i class="fas fa-pause" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="dot-hit" onclick="goToSlide(0)" aria-label="מעבר להמלצה 1 מתוך 4" aria-current="true">
+            <span class="w-3 h-3 rounded-full bg-blue-500 transition-all duration-300 dot active" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="dot-hit" onclick="goToSlide(1)" aria-label="מעבר להמלצה 2 מתוך 4">
+            <span class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300 dot" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="dot-hit" onclick="goToSlide(2)" aria-label="מעבר להמלצה 3 מתוך 4">
+            <span class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300 dot" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="dot-hit" onclick="goToSlide(3)" aria-label="מעבר להמלצה 4 מתוך 4">
+            <span class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300 dot" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden transition-opacity duration-300">
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
     <div class="bg-white rounded-2xl p-8 max-w-md mx-4 transform transition-all duration-300 scale-95 modal-content">
       <div class="text-center">
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
           <i class="fas fa-check text-green-600 text-4xl"></i>
         </div>
-        <h3 class="text-2xl font-bold mb-4 text-gray-800">ההודעה נשלחה בהצלחה!</h3>
+        <h3 id="successModalTitle" class="text-2xl font-bold mb-4 text-gray-800">ההודעה נשלחה בהצלחה!</h3>
         <p class="text-gray-600 mb-6">תודה שפנית אלינו. נחזור אליך בהקדם האפשרי.</p>
-        <button id="closeModal" class="cta-button text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+        <button id="closeModal" type="button" class="cta-button text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
           סגור
         </button>
       </div>
@@ -590,7 +668,7 @@
           
           <div class="space-y-6">
             <a href="tel:054-644-7182" class="flex items-center gap-4 p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center" aria-hidden="true">
                 <i class="fas fa-phone text-blue-600"></i>
               </div>
               <div>
@@ -600,16 +678,16 @@
             </a>
             
             <a href="https://wa.me/972546447182" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center" aria-hidden="true">
                 <i class="fab fa-whatsapp text-green-600"></i>
               </div>
               <div>
-                <div class="font-semibold">WhatsApp</div>
+                <div class="font-semibold"><span lang="en">WhatsApp</span></div>
               </div>
             </a>
             
             <a href="mailto:shay@tmu.co.il" class="flex items-center gap-4 p-4 rounded-xl hover:bg-purple-50 transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center" aria-hidden="true">
                 <i class="fas fa-envelope text-purple-600"></i>
               </div>
               <div>
@@ -623,27 +701,29 @@
         <div class="animate-fadeInUp">
           <form id="contactForm" action="https://formsubmit.co/shay@tmu.co.il" method="POST" class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 space-y-6">
             <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" style="display:none">
+            <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1" autocomplete="off">
             <input type="hidden" name="_next" value="https://avihai119.github.io/ShayLeviLandingPage/?success=true">
-            
+
+            <p class="text-sm text-gray-500 m-0">שדות המסומנים ב-* הם שדות חובה</p>
+
             <div>
-              <label class="block mb-2 font-semibold text-gray-700">שם מלא</label>
-              <input type="text" name="name" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+              <label for="contactName" class="block mb-2 font-semibold text-gray-700">שם מלא <span aria-hidden="true">*</span></label>
+              <input id="contactName" type="text" name="name" required aria-required="true" autocomplete="name" class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
             </div>
             
             <div>
-              <label class="block mb-2 font-semibold text-gray-700">טלפון</label>
-              <input type="tel" name="phone" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+              <label for="contactPhone" class="block mb-2 font-semibold text-gray-700">טלפון <span aria-hidden="true">*</span></label>
+              <input id="contactPhone" type="tel" name="phone" required aria-required="true" autocomplete="tel" class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
             </div>
             
             <div>
-              <label class="block mb-2 font-semibold text-gray-700">אימייל</label>
-              <input type="email" name="email" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
+              <label for="contactEmail" class="block mb-2 font-semibold text-gray-700">אימייל <span aria-hidden="true">*</span></label>
+              <input id="contactEmail" type="email" name="email" required aria-required="true" autocomplete="email" class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500">
             </div>
             
             <div>
-              <label class="block mb-2 font-semibold text-gray-700">הודעה</label>
-              <textarea name="message" rows="4" required class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500"></textarea>
+              <label for="contactMessage" class="block mb-2 font-semibold text-gray-700">הודעה <span aria-hidden="true">*</span></label>
+              <textarea id="contactMessage" name="message" rows="4" required aria-required="true" class="input-field w-full bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-base font-medium text-gray-800 focus:outline-none focus:border-blue-500"></textarea>
             </div>
             
             <button type="submit" class="w-full cta-button text-white px-6 py-4 rounded-xl text-lg font-semibold hover:shadow-lg transition-all">
@@ -655,13 +735,14 @@
       </div>
     </div>
   </section>
+</main>
 
   <footer class="bg-gray-800 text-white py-12">
   <div class="container mx-auto px-4 max-w-4xl">
     
     <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">  
       <div>
-        <h4 class="text-lg font-semibold mb-4">קישורים מהירים</h4>
+        <h2 class="text-lg font-semibold mb-4">קישורים מהירים</h2>
         <ul class="space-y-2 text-gray-300">
           <li><a href="#services" class="hover:text-white hover:underline transition">השירותים שלי</a></li>
           <li><a href="#testimonials" class="hover:text-white hover:underline transition">המלצות לקוחות</a></li>
@@ -672,27 +753,27 @@
 
   <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400" dir="rtl">
     <p class="text-sm">© 2026 כל הזכויות שמורות לאביחי לוי.</p>
-    <a href="#accessibility-modal" onclick="document.getElementById('accessibilityStatementModal').classList.remove('hidden')" class="underline hover:text-blue-600 mr-4">הצהרת נגישות</a>
+    <button type="button" onclick="openStatementModal()" class="underline hover:text-blue-600 mr-4 bg-transparent border-0 p-0 font-inherit cursor-pointer">הצהרת נגישות</button>
   </div>
 
   </div>
 </footer>
 
-<div id="cookieConsent" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white text-gray-800 p-6 rounded-2xl shadow-2xl border border-gray-100 z-50 transition-all duration-500 transform translate-y-0" style="display: block;">
+<div id="cookieConsent" class="fixed bottom-4 right-4 left-4 md:right-8 md:left-auto md:max-w-md bg-white text-gray-800 p-6 rounded-2xl shadow-2xl border border-gray-100 z-50 transition-all duration-500 transform translate-y-0" style="display: block;" role="dialog" aria-label="הודעת עוגיות" aria-describedby="cookieConsentText">
   <div class="flex items-start gap-4" dir="rtl">
-    <div class="bg-blue-50 text-blue-600 p-3 rounded-xl sticky top-0">
+    <div class="bg-blue-50 text-blue-600 p-3 rounded-xl sticky top-0" aria-hidden="true">
       <i class="fas fa-cookie-bite text-xl"></i>
     </div>
     <div class="flex-1 text-right">
       <h3 class="text-lg font-bold text-gray-900 mb-1">חוויית הגלישה שלך חשובה לנו</h3>
-      <p class="text-sm text-gray-600 leading-relaxed mb-4">
-        האתר שלנו משתמש בעוגיות (Cookies) כדי להבטיח לך את חוויית המשתמש הטובה ביותר, להתאים עבורך תכנים ולנתח את תנועת הגולשים. המשך הגלישה באתר מהווה הסכמה לשימוש זה.
+      <p id="cookieConsentText" class="text-sm text-gray-600 leading-relaxed mb-4">
+        האתר שלנו משתמש בעוגיות (<span lang="en">Cookies</span>) כדי להבטיח לך את חוויית המשתמש הטובה ביותר, להתאים עבורך תכנים ולנתח את תנועת הגולשים. המשך הגלישה באתר מהווה הסכמה לשימוש זה.
       </p>
       <div class="flex items-center justify-end gap-3">
-        <button onclick="document.getElementById('cookieConsent').style.display='none';" class="text-sm font-semibold text-gray-500 hover:text-gray-700 px-3 py-2 transition">
+        <button type="button" onclick="closeCookieConsent()" class="text-sm font-semibold text-gray-500 hover:text-gray-700 px-3 py-2 transition">
           סגור
         </button>
-        <button onclick="document.getElementById('cookieConsent').style.display='none';" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 rounded-xl transition shadow-md hover:shadow-lg">
+        <button type="button" onclick="closeCookieConsent()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2 rounded-xl transition shadow-md hover:shadow-lg">
           מאשר/ת, המשך באתר
         </button>
       </div>
@@ -702,31 +783,38 @@
 
   <script>
     // Service Details Toggle Function
-    function toggleServiceDetails(serviceType) {
+    function toggleServiceDetails(serviceType, btn) {
       const detailsElement = document.getElementById(serviceType + '-details');
       
       if (detailsElement.classList.contains('hidden')) {
         detailsElement.classList.remove('hidden');
         detailsElement.classList.add('visible');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
       } else {
         detailsElement.classList.remove('visible');
         detailsElement.classList.add('hidden');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       }
     }
 
-    setTimeout(() => document.getElementById('cookieConsent').style.display = 'none', 8000);
+    function closeCookieConsent() {
+      document.getElementById('cookieConsent').style.display = 'none';
+    }
+
 
     // Testimonials Slider Functions
     let currentSlide = 0;
     const totalSlides = 4;
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
+    const dotButtons = document.querySelectorAll('.dot-hit');
     const container = document.querySelector('.testimonials-container');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function setContainerHeight() {
       const activeSlide = slides[currentSlide];
       const slideHeight = activeSlide.offsetHeight;
-      container.style.height = `${slideHeight + 20}px`; 
+      container.style.height = (slideHeight + 20) + 'px';
     }
     
     function updateSlider() {
@@ -735,9 +823,11 @@
         if (index === currentSlide) {
           slide.classList.remove('testimonial-hidden');
           slide.classList.add('testimonial-active');
+          slide.setAttribute('aria-hidden', 'false');
         } else {
           slide.classList.remove('testimonial-active');
           slide.classList.add('testimonial-hidden');
+          slide.setAttribute('aria-hidden', 'true');
         }
       });
       
@@ -750,6 +840,14 @@
           dot.classList.remove('active');
           dot.classList.remove('bg-blue-500');
           dot.classList.add('bg-gray-300');
+        }
+      });
+
+      dotButtons.forEach((btn, index) => {
+        if (index === currentSlide) {
+          btn.setAttribute('aria-current', 'true');
+        } else {
+          btn.removeAttribute('aria-current');
         }
       });
 
@@ -771,22 +869,68 @@
       updateSlider();
     }
     
-    // Auto-play functionality - slides every 4 seconds
-    let autoPlay = setInterval(nextSlide, 4000);
-    
-    // Pause auto-play on hover
-    const testimonialsSection = document.getElementById('testimonials');
-    testimonialsSection.addEventListener('mouseenter', () => {
+    // Auto-play functionality - slides every 4 seconds (respects reduced-motion and manual pause)
+    let autoPlay = null;
+    let autoplayPaused = false;
+    const pauseBtn = document.getElementById('carouselPauseBtn');
+    const pauseIcon = pauseBtn ? pauseBtn.querySelector('i') : null;
+
+    function startAutoplay() {
+      if (autoplayPaused || prefersReducedMotion) return;
       clearInterval(autoPlay);
-    });
-    
-    testimonialsSection.addEventListener('mouseleave', () => {
       autoPlay = setInterval(nextSlide, 4000);
-    });
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoPlay);
+    }
+
+    function toggleAutoplay() {
+      autoplayPaused = !autoplayPaused;
+      if (autoplayPaused) {
+        stopAutoplay();
+        if (pauseBtn) {
+          pauseBtn.setAttribute('aria-pressed', 'true');
+          pauseBtn.setAttribute('aria-label', 'המשך החלפה אוטומטית של ההמלצות');
+        }
+        if (pauseIcon) {
+          pauseIcon.classList.remove('fa-pause');
+          pauseIcon.classList.add('fa-play');
+        }
+      } else {
+        startAutoplay();
+        if (pauseBtn) {
+          pauseBtn.setAttribute('aria-pressed', 'false');
+          pauseBtn.setAttribute('aria-label', 'השהה החלפה אוטומטית של ההמלצות');
+        }
+        if (pauseIcon) {
+          pauseIcon.classList.remove('fa-play');
+          pauseIcon.classList.add('fa-pause');
+        }
+      }
+    }
+
+    // Pause auto-play on hover and on keyboard focus within the carousel
+    const testimonialsSection = document.getElementById('testimonials');
+    testimonialsSection.addEventListener('mouseenter', stopAutoplay);
+    testimonialsSection.addEventListener('mouseleave', () => { if (!autoplayPaused) startAutoplay(); });
+    testimonialsSection.addEventListener('focusin', stopAutoplay);
+    testimonialsSection.addEventListener('focusout', () => { if (!autoplayPaused) startAutoplay(); });
 
     // Initial load check for height and slides
     window.addEventListener('load', () => {
-        updateSlider(); 
+        updateSlider();
+        if (prefersReducedMotion && pauseBtn) {
+          autoplayPaused = true;
+          pauseBtn.setAttribute('aria-pressed', 'true');
+          pauseBtn.setAttribute('aria-label', 'המשך החלפה אוטומטית של ההמלצות');
+          if (pauseIcon) {
+            pauseIcon.classList.remove('fa-pause');
+            pauseIcon.classList.add('fa-play');
+          }
+        } else {
+          startAutoplay();
+        }
     });
 
     // Smooth scrolling for anchor links
@@ -796,9 +940,11 @@
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
             block: 'start'
           });
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
         }
       });
     });
@@ -831,11 +977,62 @@
     if (urlParams.get('success') === 'true') {
       const modal = document.getElementById('successModal');
       if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('show');
-        // Remove success parameter from URL without reloading
+        openModal(modal, closeModalButton);
         window.history.replaceState({}, document.title, window.location.pathname);
       }
+    }
+
+    // ---- Generic accessible modal helpers (focus trap + Escape + focus return) ----
+    let lastFocusedElement = null;
+
+    function getFocusableElements(container) {
+      return Array.from(container.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      )).filter(el => el.offsetParent !== null);
+    }
+
+    function trapFocus(e, container) {
+      if (e.key !== 'Tab') return;
+      const focusable = getFocusableElements(container);
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    function openModal(modalEl, triggerButton) {
+      lastFocusedElement = document.activeElement;
+      modalEl.classList.remove('hidden');
+      modalEl.classList.add('show');
+      const focusable = getFocusableElements(modalEl);
+      if (focusable.length) focusable[0].focus();
+
+      function keyHandler(e) {
+        if (e.key === 'Escape') {
+          closeModal(modalEl, keyHandler);
+        } else {
+          trapFocus(e, modalEl);
+        }
+      }
+      modalEl._keyHandler = keyHandler;
+      document.addEventListener('keydown', keyHandler);
+    }
+
+    function closeModal(modalEl, keyHandlerOverride) {
+      modalEl.classList.remove('show');
+      setTimeout(() => {
+        modalEl.classList.add('hidden');
+      }, 300);
+      const handler = keyHandlerOverride || modalEl._keyHandler;
+      if (handler) document.removeEventListener('keydown', handler);
+      if (lastFocusedElement) lastFocusedElement.focus();
     }
 
     // Close modal functionality
@@ -844,10 +1041,7 @@
 
     if (closeModalButton) {
       closeModalButton.addEventListener('click', () => {
-        successModal.classList.remove('show');
-        setTimeout(() => {
-          successModal.classList.add('hidden');
-        }, 300);
+        closeModal(successModal);
       });
     }
 
@@ -855,65 +1049,66 @@
     if (successModal) {
       successModal.addEventListener('click', (e) => {
         if (e.target === successModal) {
-          successModal.classList.remove('show');
-          setTimeout(() => {
-            successModal.classList.add('hidden');
-          }, 300);
+          closeModal(successModal);
         }
       });
+    }
+
+    function openStatementModal() {
+      openModal(document.getElementById('accessibilityStatementModal'));
     }
   </script>
 
   <div class="fixed bottom-6 left-6 z-50 no-accessibility-target">
-    <button onclick="document.getElementById('accessibilityMenu').classList.toggle('hidden')" 
+    <button type="button" id="accessibilityMenuToggle" onclick="toggleAccessibilityMenu()"
             class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-            title="תפריט נגישות">
-      <i class="fas fa-universal-access text-2xl"></i>
+            title="תפריט נגישות" aria-haspopup="true" aria-expanded="false" aria-controls="accessibilityMenu" aria-label="פתיחת תפריט נגישות">
+      <i class="fas fa-universal-access text-2xl" aria-hidden="true"></i>
     </button>
 
-    <div id="accessibilityMenu" class="hidden absolute bottom-14 left-0 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 text-right" dir="rtl">
-      <h3 class="font-bold text-gray-900 border-b pb-2 mb-3 flex items-center gap-2">
-        <i class="fas fa-universal-access text-blue-600"></i>
+    <div id="accessibilityMenu" class="hidden absolute bottom-14 left-0 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 text-right" dir="rtl" role="region" aria-label="תפריט נגישות">
+      <h2 class="font-bold text-gray-900 border-b pb-2 mb-3 flex items-center gap-2 text-base">
+        <i class="fas fa-universal-access text-blue-600" aria-hidden="true"></i>
         תפריט נגישות
-      </h3>
+      </h2>
       <div class="space-y-2">
-        <button onclick="toggleAccessibility('contrast')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
-          <i class="fas fa-adjust text-gray-400 w-5 text-center"></i> ניגודיות גבוהה
+        <button type="button" onclick="toggleAccessibility('contrast')" aria-pressed="false" id="contrastBtn" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-adjust text-gray-400 w-5 text-center" aria-hidden="true"></i> ניגודיות גבוהה
         </button>
-        <button onclick="toggleAccessibility('links')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
-          <i class="fas fa-link text-gray-400 w-5 text-center"></i> הדגשת קישורים
+        <button type="button" onclick="toggleAccessibility('links')" aria-pressed="false" id="linksBtn" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-link text-gray-400 w-5 text-center" aria-hidden="true"></i> הדגשת קישורים
         </button>
-        <button onclick="toggleAccessibility('zoomIn')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
-          <i class="fas fa-search-plus text-gray-400 w-5 text-center"></i> הגדלת טקסט
+        <button type="button" onclick="toggleAccessibility('zoomIn')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-search-plus text-gray-400 w-5 text-center" aria-hidden="true"></i> הגדלת טקסט
         </button>
-        <button onclick="toggleAccessibility('zoomOut')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
-          <i class="fas fa-search-minus text-gray-400 w-5 text-center"></i> הקטנת טקסט
+        <button type="button" onclick="toggleAccessibility('zoomOut')" class="w-full text-right p-2 hover:bg-gray-50 rounded-xl text-sm font-medium text-gray-700 flex items-center gap-3 transition">
+          <i class="fas fa-search-minus text-gray-400 w-5 text-center" aria-hidden="true"></i> הקטנת טקסט
         </button>
-        <button onclick="toggleAccessibility('reset')" class="w-full text-center mt-2 p-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold transition border-t">
+        <button type="button" onclick="toggleAccessibility('reset')" class="w-full text-center mt-2 p-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold transition border-t">
           איפוס הגדרות
         </button>
       </div>
     </div>
   </div>
 
-  <div id="accessibilityStatementModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div id="accessibilityStatementModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="a11yStatementTitle">
   <div class="bg-white rounded-2xl max-w-2xl w-full p-6 max-h-[80vh] overflow-y-auto text-right" dir="rtl">
     <div class="flex justify-between items-center border-b pb-3 mb-4">
-      <h3 class="text-xl font-bold text-gray-900">הצהרת נגישות - שי לוי תכנון פיננסי</h3>
-      <button onclick="document.getElementById('accessibilityStatementModal').classList.add('hidden')" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+      <h2 id="a11yStatementTitle" class="text-xl font-bold text-gray-900">הצהרת נגישות - שי לוי תכנון פיננסי</h2>
+      <button type="button" onclick="closeModal(document.getElementById('accessibilityStatementModal'))" class="text-gray-400 hover:text-gray-600 text-2xl" aria-label="סגירת הצהרת הנגישות">&times;</button>
     </div>
     <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
       <p>אנו רואים בחשיבות רבה במתן שירות שוויוני לכלל הגולשים ומקדישים משאבים רבים להנגשת האתר. ההתאמות בוצעו בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקנות נגישות לשירות.</p>
-      <h4 class="font-bold text-base text-gray-900">רמת הנגישות:</h4>
-      <p>האתר מונגש ברמת AA לפי הנחיות תקינה הבינלאומית WCAG 2.0.<br> באתר מותקן סרגל נגישות המאפשר שינוי גודל גופן, שינוי ניגודיות והדגשת קישורים.</p>
-      <h4 class="font-bold text-base text-gray-900">תאימות דפדפנים ומערכות הפעלה:</h4>
-      <p>האתר נבדק ונמצא תואם לדפדפנים המובילים (Chrome, Edge, Safari, Firefox) ומותאם לשימוש במכשירים ניידים ובדסקטופ.</p>
-      <h4 class="font-bold text-base text-gray-900">פרטי רכז נגישות:</h4>
+      <h3 class="font-bold text-base text-gray-900">רמת הנגישות:</h3>
+      <p>האתר מונגש ברמת AA לפי הנחיות תקינה הבינלאומית WCAG 2.1.<br> באתר מותקן סרגל נגישות המאפשר שינוי גודל גופן, שינוי ניגודיות והדגשת קישורים.</p>
+      <h3 class="font-bold text-base text-gray-900">תאימות דפדפנים ומערכות הפעלה:</h3>
+      <p>האתר נבדק ונמצא תואם לדפדפנים המובילים (<span lang="en">Chrome, Edge, Safari, Firefox</span>) ומותאם לשימוש במכשירים ניידים ובדסקטופ.</p>
+      <h3 class="font-bold text-base text-gray-900">פרטי רכז נגישות:</h3>
       <p>אם נתקלתם בקושי בגלישה באתר או שיש לכם הצעת שיפור, נשמח לעמוד לרשותכם:<br>
       <strong>שם:</strong> שי לוי <br>
       <strong>טלפון:</strong> 054-644-7182 <br>
       <strong>אימייל:</strong> shay@tmu.co.il </p>
-      <p>תאריך עדכון ההצהרה: יוני 2026</p>
+      <p>תאריך עדכון ההצהרה: אוגוסט 2026</p>
     </div>
   </div>
 </div>
@@ -923,19 +1118,33 @@
     let contrastActive = false;
     let linksActive = false;
 
+    function toggleAccessibilityMenu() {
+      const menu = document.getElementById('accessibilityMenu');
+      const toggleBtn = document.getElementById('accessibilityMenuToggle');
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        menu.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
     function toggleAccessibility(action) {
       if (action === 'zoomIn' && currentZoom < 130) {
         currentZoom += 10;
-        document.body.style.zoom = currentZoom + '%';
+        document.documentElement.style.fontSize = currentZoom + '%';
       } 
       else if (action === 'zoomOut' && currentZoom > 90) {
         currentZoom -= 10;
-        document.body.style.zoom = currentZoom + '%';
+        document.documentElement.style.fontSize = currentZoom + '%';
       } 
       else if (action === 'contrast') {
         contrastActive = !contrastActive;
+        const btn = document.getElementById('contrastBtn');
+        if (btn) btn.setAttribute('aria-pressed', String(contrastActive));
         if (contrastActive) {
-          // הפעלת מצב ניגודיות גבוהה ע"י פילטר מובנה בדפדפן
           document.body.style.filter = 'contrast(1.4) saturate(1.2)';
           document.body.classList.add('bg-black');
         } else {
@@ -945,12 +1154,14 @@
       } 
       else if (action === 'links') {
         linksActive = !linksActive;
+        const btn = document.getElementById('linksBtn');
+        if (btn) btn.setAttribute('aria-pressed', String(linksActive));
         const links = document.querySelectorAll('a:not(.no-accessibility-target a)');
         links.forEach(link => {
           if (linksActive) {
             link.style.textDecoration = 'underline';
             link.style.fontWeight = 'bold';
-            link.style.color = '#2563eb'; // כחול נגיש
+            link.style.color = '#2563eb';
           } else {
             link.style.textDecoration = '';
             link.style.fontWeight = '';
@@ -962,9 +1173,13 @@
         currentZoom = 100;
         contrastActive = false;
         linksActive = false;
-        document.body.style.zoom = '100%';
+        document.documentElement.style.fontSize = '';
         document.body.style.filter = 'none';
         document.body.classList.remove('bg-black');
+        const contrastBtn = document.getElementById('contrastBtn');
+        const linksBtn = document.getElementById('linksBtn');
+        if (contrastBtn) contrastBtn.setAttribute('aria-pressed', 'false');
+        if (linksBtn) linksBtn.setAttribute('aria-pressed', 'false');
         const links = document.querySelectorAll('a');
         links.forEach(link => {
           link.style.textDecoration = '';
@@ -974,12 +1189,24 @@
       }
     }
 
-    // סגירת התפריט בלחיצה מחוץ לו
+    // סגירת התפריט בלחיצה מחוץ לו או ב-Escape
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('accessibilityMenu');
       const container = menu.parentElement;
       if (!container.contains(event.target)) {
         menu.classList.add('hidden');
+        document.getElementById('accessibilityMenuToggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const menu = document.getElementById('accessibilityMenu');
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          document.getElementById('accessibilityMenuToggle').setAttribute('aria-expanded', 'false');
+          document.getElementById('accessibilityMenuToggle').focus();
+        }
       }
     });
   </script>
